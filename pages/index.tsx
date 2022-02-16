@@ -230,7 +230,7 @@ const Home: NextPage = () => {
               Early Adopters
             </Heading>{" "}
             <Heading size="md" color="green.300" mt="4">
-              A$600 First Year
+              A$800 First Year
             </Heading>
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
