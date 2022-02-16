@@ -17,6 +17,9 @@ import {
   useDisclosure,
   Image,
   CircularProgress,
+  Text,
+  toast,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 
@@ -33,6 +36,8 @@ export default function ContactForm({
   const schoolRef = React.createRef<HTMLInputElement>();
   const msgRef = React.createRef<HTMLTextAreaElement>();
   const [sending, setSending] = useState(false);
+  const [required, setRequired] = useState(false);
+  const toast = useToast();
 
   const sendForm = async () => {
     const pl = {
@@ -56,6 +61,18 @@ export default function ContactForm({
       resp!.json().then((data) => console.log(data));
       setSending(false);
       onClose();
+      toast({
+        title: "Form Sent.",
+        description: "",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    } else {
+      setRequired(true);
+      setTimeout(() => {
+        setRequired(false);
+      }, 3000);
     }
   };
 
@@ -125,6 +142,11 @@ export default function ContactForm({
         <ModalFooter>
           <Flex gap="2" alignItems={"center"}>
             {sending && <CircularProgress isIndeterminate size={"25"} />}
+            {required && (
+              <Text color={"red.300"} mr="4">
+                Missing Fields
+              </Text>
+            )}
             <Button onClick={sendForm}>Send</Button>
             <Button onClick={onClose}>Close</Button>
           </Flex>
