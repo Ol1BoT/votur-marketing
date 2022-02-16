@@ -151,7 +151,7 @@ const Home: NextPage = () => {
           <Heading size="lg" mb="6" color="gray.200" mt="5">
             Features
           </Heading>
-          <SimpleGrid spacing="40px" columns={[1, 3]}>
+          <SimpleGrid spacing="40px" columns={[1, 3]} p={["2", 0]}>
             <Box>
               <Icon fontSize="xl" as={BsFillShieldLockFill} mr="2" />
               OAuth2
