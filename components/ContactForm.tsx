@@ -42,18 +42,21 @@ export default function ContactForm({
       school: schoolRef?.current?.value,
       message: msgRef?.current?.value,
     };
-    setSending(true);
-    const resp = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(pl),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).catch((err) => console.log(err));
 
-    resp!.json().then((data) => console.log(data));
-    setSending(false);
-    onClose();
+    if (pl.email != "" && pl.name != "" && pl.school != "") {
+      setSending(true);
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(pl),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).catch((err) => console.log(err));
+
+      resp!.json().then((data) => console.log(data));
+      setSending(false);
+      onClose();
+    }
   };
 
   return (
