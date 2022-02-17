@@ -204,7 +204,7 @@ const Home: NextPage = () => {
         </Flex>
       </Box>
       <Box
-        bg="gray.800"
+        bg="gray.900"
         display="flex"
         flexDir="column"
         justifyContent="center"
@@ -230,12 +230,12 @@ const Home: NextPage = () => {
               Early Adopters
             </Heading>{" "}
             <Heading size="md" color="green.300" mt="4">
-              A$800 First Year
+              A$899 First Year
             </Heading>
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
-                First 3 Schools To Sign
+                First 10 Schools To Sign
               </ListItem>
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
@@ -274,7 +274,7 @@ const Home: NextPage = () => {
               Standard
             </Heading>{" "}
             <Heading size="md" color="green.300" mt="4">
-              A$1,000 P/A
+              A$1,200 P/A
             </Heading>
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
