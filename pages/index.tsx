@@ -132,7 +132,7 @@ const Home: NextPage = () => {
               based on questions assigned to that election. Applications can be
               approved or denied, and from there the election can go live and
               people can vote. Applying and voting can be restricted by year
-              level.
+              level, house and custom groups.
             </Text>
             <Button onClick={onOpen} colorScheme="cyan" m="5">
               Questions? Contact Us
@@ -170,7 +170,7 @@ const Home: NextPage = () => {
             </Box>
             <Box>
               <Icon fontSize="xl" as={AiOutlineStop} mr="2" />
-              Limit Applications and Voting by Year and Group
+              Limit Applications and Voting by Year, House and Groups
             </Box>
             <Box>
               <Icon fontSize="xl" as={MdTouchApp} mr="2" />
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
             </Box>
             <Box>
               <Icon fontSize="xl" as={GiRank3} mr="2" />
-              Ranked Voting
+              Ranked Choice Voting
             </Box>
             <Box>
               <Icon fontSize="xl" as={GoGraph} mr="2" />
@@ -230,13 +230,12 @@ const Home: NextPage = () => {
               Early Adopters
             </Heading>{" "}
             <Heading size="md" color="green.300" mt="4">
-              A$899 First Year
+              $ TBA
             </Heading>
+            {/* <Heading size="xs" color="green.300" mt="2">
+              A$600 P/A onward
+            </Heading> */}
             <List color="gray.50" mt="3" spacing="2">
-              <ListItem>
-                <ListIcon as={MdCheckCircle} color="green.200" />
-                First 10 Schools To Sign
-              </ListItem>
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
                 Unlimited Users
@@ -259,7 +258,7 @@ const Home: NextPage = () => {
               Contact Now
             </Button>
           </Box>
-          <Box
+          {/* <Box
             border="2px"
             borderColor={"gray.400"}
             h="350"
@@ -298,7 +297,7 @@ const Home: NextPage = () => {
             <Button size="lg" colorScheme="cyan" onClick={onOpen}>
               Contact Now
             </Button>
-          </Box>
+          </Box> */}
         </Flex>
       </Box>
     </Box>
