@@ -204,7 +204,7 @@ const Home: NextPage = () => {
         </Flex>
       </Box>
       <Box
-        bg="gray.900"
+        backgroundImage={"./pattern.svg"}
         display="flex"
         flexDir="column"
         justifyContent="center"
@@ -218,6 +218,7 @@ const Home: NextPage = () => {
           <Box
             border="2px"
             borderColor={"gray.400"}
+            backgroundColor={"blackAlpha.300"}
             h="350"
             w="300px"
             rounded="md"
@@ -230,7 +231,7 @@ const Home: NextPage = () => {
               Early Adopters
             </Heading>{" "}
             <Heading size="md" color="green.300" mt="4">
-              $ TBA
+              $TBA
             </Heading>
             {/* <Heading size="xs" color="green.300" mt="2">
               A$600 P/A onward

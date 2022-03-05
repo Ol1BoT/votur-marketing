@@ -82,7 +82,7 @@ export default function ContactForm({
       <ModalContent>
         <ModalHeader>
           <Flex pr="9">
-            <Box h="40px" w="40px" mr="4">
+            <Box h="42px" w="42px" mr="4">
               <Image src="./votur.png" />
             </Box>
             Contact Us
