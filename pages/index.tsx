@@ -32,6 +32,7 @@ import { GiRank3 } from "react-icons/gi";
 import { GoGraph } from "react-icons/go";
 import { FiUser, FiUsers } from "react-icons/fi";
 import ContactForm from "../components/ContactForm";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [scrollPos, setScrollPos] = useState(0);
@@ -259,6 +260,7 @@ const Home: NextPage = () => {
               Contact Now
             </Button>
           </Box>
+
           {/* <Box
             border="2px"
             borderColor={"gray.400"}
@@ -300,6 +302,19 @@ const Home: NextPage = () => {
             </Button>
           </Box> */}
         </Flex>
+      </Box>
+      <Box
+        pt="24"
+        bg="gray.900"
+        display="flex"
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
+        pb="24"
+      >
+        <Link href="/guide">
+          <Button>Documentation</Button>
+        </Link>
       </Box>
     </Box>
   );

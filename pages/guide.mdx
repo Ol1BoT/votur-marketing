@@ -1,0 +1,168 @@
+import Layout from "../components/Layout";
+import { Button, Box } from "@chakra-ui/react";
+import Link from "next/link";
+import Image from "next/image";
+import MDXImage from "../components/MDXImage";
+
+# Votur User Guide
+
+There will be UX and UI tweaks in the future, however the role and election process will remain the same, but we will update the guide when necessary.
+
+# User Pages
+
+## Dashboard
+
+<MDXImage src="/images/docs/dashboard.png" alt="Dashboard" />
+
+Dashboard is broken into 3 parts:
+
+- Voting: A link that takes you to a another page
+  listing all elections open to voting
+- Open Applications: Applications you can apply
+  for, if the election isn’t in your year level range it won’t show
+- My Applications: View the status of all your submitted applications, as well as the application itself.
+
+## Profile
+
+<MDXImage src="/images/docs/profile.png" alt="Profile Page" />
+
+Here the user can upload their photo and fill in a bit of information about themselves. Profiles can be viewed on the voting pages
+
+## Voting Overview
+
+<MDXImage src="/images/docs/voting-overview.png" alt="Voting Overview Page" />
+
+Voting is a table listing all the available elections that can be voted on. From there the user can click on the election they wish to vote on
+
+## Voting Page
+
+<MDXImage src="/images/docs/voting-page.png" alt="Voting Page" />
+
+The voting page enables the user to view the candidates profile, as well as view their application, that way the voter can make a more informed decision on who they will vote for.
+
+Once the user has selected all the necessary candidates to fulfil the number of votes requirement, they will be able to cast their vote.
+
+As you can see the votes are in ranking order, however that can always be ignored if ranked voting doesn’t come into play for the elections.
+
+## Create Applications
+
+<MDXImage
+  src="/images/docs/application-create.png"
+  alt="Application Creation Page"
+/>
+
+Clicking on the "Apply Now" button on the card will take the user to another page, where they can apply for the election by filling out the questions created by the moderator
+
+## My Applications
+
+<MDXImage
+  src="/images/docs/application-status.png"
+  alt="Application Status Sections"
+/>
+You can view the status of your application by glancing at the icons assigned to
+your applications. The user can also view their applications once submitted, but
+aren't able to edit them
+
+# Moderators
+
+Moderators are responsible for creating and managing roles and elections. The moderator permission by itself does not mean you can access results; an additional permission called results viewer must be given to the user.
+
+## Basic Workflow
+
+The moderator either creates a new role or uses an existing one
+The moderator creates a new election filling out the necessary settings
+Election is opened up for applications
+Applications are reviewed, and are either approved, denied or remain pending
+Election is opened to up voting, voting can be separated by staff and students
+
+## Creating Roles
+
+<MDXImage src="images/docs/role-create.png" alt="Role Creation Page" />
+
+Role Name **_required_**
+Role Description optional
+Role Active optional (default false)
+
+## Creating Elections
+
+<MDXImage src="/images/docs/election-create.png" alt="Election Creation Page" />
+
+1. Select Role **_required_**
+2. Election Name **_required_**
+3. Election Introduction optional (shows on the application page)
+4. Apply Min Year **_required_** (Minimum year level of a student who can apply for the role)
+5. Apply Max Year **_required_** (Maximum year level of a student who can apply for the role)
+6. Number of Votes Allowed **_required_** (How many candidates the user can vote for)
+7. Vote Min Year **_required_** (Minimum year level of a student who can vote for the role)
+8. Apply Max Year **_required_** (Maximum year level of a student who can apply for the role)
+9. Show Student **_required_** (default false, this shows the election on the voting page for Students)
+10. Show Staff **_required_** (default false, this shows the election on the voting page for Staff)
+11. Applications Open **_required_** (default false, this allows users to apply for the role)
+12. Active **_required_** (default false, this makes the election active, and is essentially used to archive an election, or as a kill switch in case you need to shut everything down quickly.
+13. Questions optional (you can add as many questions as necessary), but question title is **_required_** while the body is optional
+
+## Managing Elections
+
+<MDXImage
+  src="/images/docs/election-management.png"
+  alt="Election Management Page"
+/>
+Basic election management can be done on the moderator page
+
+For more detailed election management, clicking “View” will take you to the election management page where you can add and delete questions (which won’t affect previously submitted applications) as well as adding group and house limitations
+
+### Approving/Denying Applications
+
+<MDXImage
+  src="/images/docs/application-approval.png"
+  alt="Approving Applications Page"
+/>
+Basic election management can be done on the moderator page Under the same page,
+the moderator can view applications under the candidates tab. From there they can
+approve or deny applications. Only approved applications can be voted on in elections.
+
+### Results
+
+Results can be viewed by admins or by moderators with a result viewer permission. Result can be downloaded as CSV where you can view the raw data, but Votur also includes charting where you can see the standard results, as well as the ranked results
+
+<MDXImage
+  src="/images/docs/chart-unranked.png"
+  alt="Uranked Results Chart"
+  size="sm"
+/>
+<MDXImage src="/images/docs/chart-ranked.png" alt="Ranked Results Chart" />
+## Admins
+
+### Auth
+
+You have a choice of using Google OAuth or AzureAD OAuth. The School provides the client ID and secret that your chosen provider gives (Azure OAuth requires a few more fields such as Tenant ID and validation URL).
+
+Using your own Identity provider means that you don’t necessarily need to be a bulk upload of users, you can just have people login and an account will be created for them. By default, the user’s year level will be set to year 7, but that can be altered in app, or via bulk upload.
+
+### Managing Users
+
+<MDXImage src="/images/docs/user-settings.png" alt="Manage User Page" />
+
+All the settings above can be imported/updated via bulk upload, and all apart from email, name and external ID can be edited in the app.
+
+### Uploading Users
+
+- Email is used as the primary identifier
+- duplicates won’t be imported again, but the settings will be updated
+- House codes must already exist in the app, otherwise the upload will fail
+- CSV heading names are also strict and must follow the template, however not all fields are **_required_**.
+
+<MDXImage src="/images/docs/user-upload.png" alt="User Upload Page" />
+
+## Groups
+
+## FAQ
+
+- Permissions are stored within the user token, if you were to change a permission or the year level of a student, they would need to logout and log back in.
+- Votur is a single tenant application. Each School has their own instances created for them, with their own database.
+- The School does not have access to the database
+- Weighted voting does not currently exist in-app, but that feature is being worked on.
+- Students can be given moderator privileges, however even with a moderator permission, they won’t be able to access inactive elections (to prevent them browsing on previous elections.)
+- Number of votes allowed in an election cannot be changed, as that number is used when calculating results, and would result in ranked choice graphing to fail. If you made a mistake, you would need to recreate the election
+
+export default ({ children }) => <Layout>{children}</Layout>;
