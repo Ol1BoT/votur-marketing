@@ -16,7 +16,7 @@ const Layout = ({ children }: { children: ReactChildren }) => {
       </Box>
       <Box m={["4", "24"]}>
         <Link href="/">
-          <Button>Main Page</Button>
+          <Button colorScheme="cyan">Main Page</Button>
         </Link>
         {children}
       </Box>
