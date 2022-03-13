@@ -313,7 +313,7 @@ const Home: NextPage = () => {
         pb="24"
       >
         <Link href="/guide">
-          <Button>Documentation</Button>
+          <Button colorScheme="cyan">Documentation</Button>
         </Link>
       </Box>
     </Box>
