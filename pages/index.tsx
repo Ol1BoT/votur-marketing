@@ -240,7 +240,7 @@ const Home: NextPage = () => {
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
-                Unlimited Users
+                Unlimited Elections
               </ListItem>
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
