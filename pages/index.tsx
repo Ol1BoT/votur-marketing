@@ -244,6 +244,10 @@ const Home: NextPage = () => {
               </ListItem>
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
+                Single Tenant
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
                 Full Managed SaaS
               </ListItem>
               <ListItem>
