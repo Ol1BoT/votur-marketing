@@ -1,4 +1,5 @@
 import {
+  background,
   Box,
   Button,
   Flex,
@@ -11,6 +12,7 @@ import {
   SimpleGrid,
   Spacer,
   Text,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
@@ -23,7 +25,7 @@ import {
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { FaVoteYea } from "react-icons/fa";
 import {
-  AiFillProfile,
+  AiFillInfoCircle,
   AiFillQuestionCircle,
   AiOutlineDownload,
   AiOutlineStop,
@@ -86,16 +88,6 @@ const Home: NextPage = () => {
             >
               Modern Voting Application for Schools
             </Heading>
-            <Heading
-              mt="4"
-              size="2xl"
-              bgGradient="linear(to-l, #7928CA, #FF0080)"
-              bgClip="text"
-              fontWeight="extrabold"
-              py="2"
-            >
-              Coming Soon
-            </Heading>
           </Box>
           <Box
             w="full"
@@ -124,7 +116,7 @@ const Home: NextPage = () => {
 
           <Box maxW="3xl" textAlign="center" p={["2", "0"]}>
             <Text mb="5">
-              Votur is Edu-tech software that enables schools and other
+              Votur is Edtech software that enables schools and other
               institutions to hold elections for certain roles. Be it sports
               captains, head of house, club leaders, head of year etc.
             </Text>
@@ -135,7 +127,15 @@ const Home: NextPage = () => {
               people can vote. Applying and voting can be restricted by year
               level, house and custom groups.
             </Text>
-            <Button onClick={onOpen} colorScheme="cyan" m="5">
+            <Button
+              onClick={onOpen}
+              background="cyan.400"
+              color={"black"}
+              _hover={{
+                background: "cyan.500",
+              }}
+              m="5"
+            >
               Questions? Contact Us
             </Button>
           </Box>
@@ -210,17 +210,31 @@ const Home: NextPage = () => {
         flexDir="column"
         justifyContent="center"
         alignItems="center"
-        pb="4"
+        pb="12"
       >
         <Heading size="lg" mb="6" mt="5" color="gray.200">
-          Pricing
+          Pricing - Early Adopters
+          <Tooltip
+            label="Two years min fixed price"
+            aria-label="A tooltip"
+            fontSize={"sm"}
+          >
+            <span>
+              <Icon
+                as={AiFillInfoCircle}
+                fontSize="xl"
+                ml="2"
+                color={"blue.300"}
+              />
+            </span>
+          </Tooltip>
         </Heading>
         <Flex gap="4" flexDir={["column", "row"]}>
           <Box
             border="2px"
             borderColor={"gray.400"}
             backgroundColor={"blackAlpha.300"}
-            h="350"
+            h="350px"
             w="300px"
             rounded="md"
             display="flex"
@@ -229,14 +243,31 @@ const Home: NextPage = () => {
             p="4"
           >
             <Heading size="lg" color="gray.300">
-              Early Adopters
-            </Heading>{" "}
-            <Heading size="md" color="green.300" mt="4">
-              $TBA
+              0 - 999 Users
             </Heading>
-            {/* <Heading size="xs" color="green.300" mt="2">
-              A$600 P/A onward
-            </Heading> */}
+            <Heading
+              size="md"
+              color="green.300"
+              mt="4"
+              mb="3"
+              textAlign={"center"}
+            >
+              $750 p/a
+              <Tooltip
+                label="Prices are USD"
+                aria-label="A tooltip"
+                fontSize={"sm"}
+              >
+                <span>
+                  <Icon
+                    as={AiFillInfoCircle}
+                    fontSize="md"
+                    ml="2"
+                    color={"blue.300"}
+                  />
+                </span>
+              </Tooltip>
+            </Heading>
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
@@ -260,14 +291,23 @@ const Home: NextPage = () => {
               </ListItem>
             </List>
             <Spacer></Spacer>
-            <Button size="lg" colorScheme="cyan" onClick={onOpen}>
-              Contact Now
+            <Button
+              size="lg"
+              background="cyan.400"
+              color={"black"}
+              _hover={{
+                background: "cyan.500",
+              }}
+              onClick={onOpen}
+            >
+              Order
             </Button>
           </Box>
 
-          {/* <Box
+          <Box
             border="2px"
             borderColor={"gray.400"}
+            backgroundColor={"blackAlpha.300"}
             h="350"
             w="300px"
             rounded="md"
@@ -277,16 +317,41 @@ const Home: NextPage = () => {
             p="4"
           >
             <Heading size="lg" color="gray.300">
-              Standard
-            </Heading>{" "}
-            <Heading size="md" color="green.300" mt="4">
-              A$1,200 P/A
+              1000 - 1500 Users
             </Heading>
+            <Heading
+              size="md"
+              color="green.300"
+              mt="4"
+              mb="3"
+              textAlign="center"
+            >
+              $999 p/a
+              <Tooltip
+                label="Prices are USD"
+                aria-label="A tooltip"
+                fontSize={"sm"}
+              >
+                <span>
+                  <Icon
+                    as={AiFillInfoCircle}
+                    fontSize="md"
+                    ml="2"
+                    color={"blue.300"}
+                  />
+                </span>
+              </Tooltip>
+            </Heading>
+
             <List color="gray.50" mt="3" spacing="2">
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
-                Unlimited Users
-              </ListItem>{" "}
+                Unlimited Elections
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Single Tenant
+              </ListItem>
               <ListItem>
                 <ListIcon as={MdCheckCircle} color="green.200" />
                 Full Managed SaaS
@@ -301,10 +366,77 @@ const Home: NextPage = () => {
               </ListItem>
             </List>
             <Spacer></Spacer>
-            <Button size="lg" colorScheme="cyan" onClick={onOpen}>
+            <Button
+              size="lg"
+              onClick={onOpen}
+              background="cyan.400"
+              color={"black"}
+              _hover={{
+                background: "cyan.500",
+              }}
+            >
+              Order
+            </Button>
+          </Box>
+          <Box
+            border="2px"
+            borderColor={"gray.400"}
+            backgroundColor={"blackAlpha.300"}
+            h="350"
+            w="300px"
+            rounded="md"
+            display="flex"
+            flexDir="column"
+            alignItems="center"
+            p="4"
+          >
+            <Heading size="lg" color="gray.300">
+              1500+ Users
+            </Heading>
+            <Heading
+              size="md"
+              color="green.300"
+              mt="4"
+              mb="3"
+              textAlign="center"
+            >
+              Contact For Quote
+            </Heading>
+            <List color="gray.50" mt="3" spacing="2">
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Unlimited Elections
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Single Tenant
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Full Managed SaaS
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Email Support
+              </ListItem>
+              <ListItem>
+                <ListIcon as={MdCheckCircle} color="green.200" />
+                Continuous Development
+              </ListItem>
+            </List>
+            <Spacer></Spacer>
+            <Button
+              size="lg"
+              background="cyan.400"
+              color={"black"}
+              _hover={{
+                background: "cyan.500",
+              }}
+              onClick={onOpen}
+            >
               Contact Now
             </Button>
-          </Box> */}
+          </Box>
         </Flex>
       </Box>
       <Box
@@ -317,7 +449,15 @@ const Home: NextPage = () => {
         pb="24"
       >
         <Link href="/guide">
-          <Button colorScheme="cyan">Documentation</Button>
+          <Button
+            background="cyan.400"
+            color={"black"}
+            _hover={{
+              background: "cyan.500",
+            }}
+          >
+            Documentation
+          </Button>
         </Link>
       </Box>
     </Box>
